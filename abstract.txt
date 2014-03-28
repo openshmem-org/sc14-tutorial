@@ -1,0 +1,23 @@
+As high performance computing systems become ever larger, they
+introduce both problems and opportunities for programmers and
+developers.  Very large systems are constructed of components arranged
+in hierarchies.  For example, a single node may have multiple levels
+of memory latency, and a cluster has multiple nodes with network
+latencies between them.  Languages and libraries can leverage hardware
+capabilities such as remote directory memory access (RDMA) to hide
+latencies through 1-sided data communication.  These require only the
+sender side to participate in the transfer, allowing the recipient to
+continue working on other tasks without interruption.
+
+OpenSHMEM is such a library, with data transfer routines, collective
+operations such as reductions and concatenations, synchronizations and
+memory management.  OpenSHMEM is part of the Partitioned Global
+Address Space (PGAS) family, combining a global view of memory
+accessible to the entire program with local affinity of data storage.
+
+Various vendors have developed implementations of "SHMEM" over the
+last 30 years since it was first introduced by Cray.  However, these
+diverged from each other as new features were added.  OpenSHMEM is a
+standardization of SHMEM, designed to evolve the library and tool
+ecosystem to accommodate the needs of 21st century application
+development on increasingly larger computer systems.

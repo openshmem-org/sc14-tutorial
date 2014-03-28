@@ -1,0 +1,266 @@
+\documentclass[10pt,english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{babel}
+\usepackage{fancybox}
+\usepackage[unicode=true]{hyperref}
+\usepackage{breakurl}
+
+\usepackage[parfill]{parskip}
+
+\begin{document}
+
+\title{OpenSHMEM Tutorial Proposal for SuperComputing 2014}
+\author{Tony Curtis <tonyc@uh.edu> \and Oscar Hernandez <oscar@ornl.gov> \and ...}
+
+\maketitle
+
+\section{Detailed Description}
+
+Programming languages and libraries that leverage sophisticated
+hardware capabilities have a natural advantage when used on today's
+and tomorrow's high performance computer systems.  This tutorial
+introduces the use of OpenSHMEM, a library API that can be used to
+write programs that scale with a natural expression of 1-sided,
+overlapped communication and computation.
+
+The overarching goal is to present the capabilities of the OpenSHMEM
+library to the audience with a view to driving the development of the
+library through community involvement.  The bigger the user community,
+the more input there will be to help decide future directions.
+
+The OpenSHMEM project is an effort to develop the current API to make
+it more expressive on current and future HPC systems.  The effort
+includes development of the specification of OpenSHMEM, the web site,
+tutorial, presentation, workshop and other outreach materials, along
+with new tools that programmers can use to detect and avoid problems
+in OpenSHMEM programs at compile-time.
+
+People who attend this tutorial will find out about the history of
+OpenSHMEM, its current state, and where we see it going.  Co-design of
+software and hardware is a hot topic as we try to build ever larger
+systems without running into power and financial brick walls.
+
+Designing expressive programming environments that allow programmers
+to solve problems is part of the solution, but also if we can closely
+match the anticipated hardware capabilities, especially within network
+fabrics, we can build yet more efficient systems.  Communication
+layers that can take advantage of existing and novel network hardware
+will allow the development of yet more interesting higher-level
+environments such as libraries like OpenSHMEM and highly-productive
+languages.  Oak Ridge National Laboratory has been developing one such
+interface called the Uniform Common Communication Substrate (UCCS);
+part of the tutorial will cover the current state of this library and
+how we are working to provide a very high performing software
+interface to networks.
+
+Our intended audience are programmers and technology decision makers
+who are looking for information to help them decide on future HPC
+development methods.  The tutorial will be gradated to be attractive
+to programmers who are unfamiliar with the details of OpenSHMEM and
+PGAS environments, as well as more seasoned programmers and
+technologists who want to acquaint themselves with the state of the
+art.
+
+The tutorial is intended for people who can program in C and/or
+Fortran, or at least are familiar with such code, as those are the
+languages that OpenSHMEM targets, but note that we will concentrate on
+C for our examples.  A familiarity with parallel programming
+environments will be be helpful, e.g. GNU/Linux usage, MPI, clusters
+(job schedulers, parallel launchers).
+
+\subsection{General Description}
+
+The tutorial covers introductory material, going over the history of
+OpenSHMEM to provide context for the current efforts, and discusses
+the current state of play, before looking at complementary efforts for
+network support and the tool ecosystem that will make OpenSHMEM a
+highly productive environment.  We look at some example programs that
+demonstrate how OpenSHMEM works, and will make available code
+examples.  Installation and use of the library will be covered for
+those who wish to participate in development.  Information about how
+to propose new features and take part in online discussions will be
+given so that attendees can continue to involve themselves in the
+process after the tutorial.
+
+\subsection{Cohesion of Presenters}
+
+The tutorial will be presented by researchers from the University of
+Houston (UH), and Oak Ridge National Laboratory (ORNL).  These 2
+institutions have worked together for a number of years on a number of
+projects.  As well as the 4-year OpenSHMEM effort, UH graduate
+students have been perennial summer interns at ORNL over the past few
+years, and there are UH post-doctorates working at ORNL, including one
+of the presenters.  The development of the tutorial material thus
+comes from a longstanding collaborative process, and we have given
+joint tutorials and workshops in the past, including this year.
+
+\subsection{Update Of Previous Material}
+
+The material we intend to present has in part appeared before in
+previous tutorials.  This is to aid in the familiarization process as
+many attendees are new to OpenSHMEM.  To add to existing material, we
+include some case studies of programs that were either ported from
+other paradigms, e.g. MPI, or written from scratch, and show how to
+progressively improve the parallelization afforded by OpenSHMEM.
+
+\section{Detailed Outline}
+
+\subsection{Overview}
+
+  To set context, we will provide the audience with an outline of the
+  space occupied by OpenSHMEM in the programming landscape, comparing
+  it with other libraries and languages in the Partitioned Global
+  Address Space family.  To show how the API is structured, we will
+  take a guided tour of the API, highlighting with examples how
+  OpenSHMEM is used in programs.
+
+\subsection{The OpenSHMEM API}
+
+  The API consists of 5 basic sections: memory management,
+  point-to-point data transfers, synchronizations, collective
+  operations, and atomics and locks.  Introduced in this order, we can
+  incrementally describe working OpenSHMEM programs that grow in
+  complexity.
+
+\subsection{UCCS Development}
+
+  We will discuss the current state and future plans of the UCCS
+  substrate software.  Design decisions will be be covered with a view
+  to explaining how the software is intended to be a platform not just
+  for OpenSHMEM, but also for PGAS/HPCS languages.
+
+\subsection{OpenSHMEM is evolving}
+
+  We will present existing extension ideas (both at the time of
+  writing and those in play at the time of the tutorial) and draw on
+  the experience of the audience to actively solicit new ideas.
+
+\subsection{Debugging and Profiling Tools}
+
+  OpenSHMEM is supported by various well-known profiling and debugging
+  tools, including TAU, Vampir, and DDT.  We will discuss their use
+  briefly, but avoid in-depth discussion because other tutorials are
+  likely to be focused on these topics specifically.
+
+\subsection{Our new OpenSHMEM Analyzer tool}
+
+  This will be covered to help attendees understand how to detect
+  errors and inefficiencies in programs.  Examples will show how the
+  tool is able to report on under-synchronized programs which can lead
+  to race conditions, hangs or undefined behavior, and
+  over-synchronized ones which introduce slowdowns.
+
+\section{Hands-On Work}
+
+The OpenSHMEM reference implementation and its dependencies are
+available in source form for download.  The library includes demo
+programs that attendees can examine and work with.  The software runs
+both on a desktop/laptop and on larger clusters, giving a wide range
+of deployment options for this tutorial.  For those interested in
+obtaining the software themselves, we will provide assistance in
+installing from source on GNU/Linux.  Hands-on sessions in this
+tutorial will allow attendees to try things out at their own pace so
+these activities can occur concurrently with the presenters available
+to help.
+
+We will walk attendees through installing the OpenSHMEM reference
+implementation and GASNet, and then show how to use the library in a
+number of configurations, including in a personal laptop and on a
+cluster with Infiniband interconnect.  There will be discussion of
+other common combinations.
+
+The demonstration programs that come with the library, plus some other
+sample programs are available for building and experimentation.
+Having working examples helps people to see how to write their own
+programs from scratch.
+
+Some MPI programs with OpenSHMEM counterparts will be available to
+show how existing parallel programs can be converted.
+
+All tutorial material will be available for download.
+
+\section{R\'{e}sum\'{e}s}
+
+\subsection{Tony Curtis}
+
+\subsubsection*{University of Houston, Computer Science Department:
+  September 2013 - present}
+
+    I am a senior member of Dr. Barbara Chapman's HPCTools research
+    group in Computer Science.  My main work is lead on the OpenSHMEM
+    project with 2 post-docs and 3 PhD students, as well as leading
+    system administration of group resources.  I provide a consultant
+    role in the university's High Performance Computing Center, of
+    which Barbara Chapman is also director.
+
+    For the OpenSHMEM project, we have presented workshops/tutorials
+    at various conferences, for example PGAS11 and 12, and members of
+    the team have presented posters and papers at other conferences.
+    I have also led a number of OpenSHMEM BOFs at SC conferences.
+
+\subsubsection*{HPCVL:
+  February 2006 - November 2008}
+
+    I am Operations Manager at HPCVL, one of the national level High
+    Performance Computing Consortia in Canada, in Kingston, Ontario
+    (Canada) at the Queen's University.
+
+    Through managing a group of 4 system administrators, and
+    interfacing with user support, security and web personnel, I am
+    responsible for day-to-day operations and future planning of
+    systems, services and infrastructure at the Kingston and satellite
+    locations.
+
+\subsubsection*{University of Houston High-Performance Computing:
+  January 2000 - September 2005}
+
+    I was the primary technical driver for a Sun Microsystems Center
+    of Excellence SunFire cluster configuration and its implementation
+    and I head the systems administration team.
+
+    I helped guest teach some introductory HPC classes for the Computer
+    Science department, e.g. MPI and Grid.
+
+\subsubsection*{VCPC, European Centre for Parallel Computing:
+  May 1996 - April 1999}
+
+    As systems manager, I am responsible for the setup, running and
+    maintenance of VCPC's machines (mainly Solaris and SGI
+    workstations) plus overseeing the maintenance and running of the
+    Meiko CS-2 service. This service is available to users world-wide.
+
+    VCPC also performs consultancy to European SMEs and I have been
+    involved directly in some projects and indirectly through platofrm
+    support.
+
+\subsubsection*{EUnet Austria in Vienna:
+  May 1994 - April 1996}
+
+    EUnet was a pan-European ISP, and in 1994 was expanding as
+    commercial and private interest in the Internet and the WWW grew.
+    My main work there was to set up the WWW server and to handle
+    customers requiring WWW access and sites co-located on our server
+    (virtual hosting etc.).  Also the work involved visiting customers
+    and setting up on-site WWW / proxy servers, including servers for
+    the Austrian Press Agency, Der Standard (broadsheet newspaper),
+    and the federal Chamber of Commerce.
+
+\subsubsection*{University of Kent at Canterbury:
+  January 1988 - April 1994}
+
+    At the University of Kent I was initially working in the parallel
+    computing research team and also involved in undergraduate and
+    postgraduate (MSc. course) teaching. The teaching included a
+    number of topics, introduction to programming, theoretical
+    computer science, logic programming, functional programming,
+    mathematics, parallel computing and others.  The group also ran
+    external paid courses in parallel programming for industry users.
+
+\subsection{Oscar}
+
+\subsection{Other}
+
+\end{document}
