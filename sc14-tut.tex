@@ -13,7 +13,7 @@
 \begin{document}
 
 \title{OpenSHMEM Tutorial Proposal for SuperComputing 2014}
-\author{Tony Curtis <tonyc@uh.edu> \and Oscar Hernandez <oscar@ornl.gov> \and ...}
+\author{Tony Curtis <tonyc@uh.edu> \and Oscar Hernandez <oscar@ornl.gov> \and Pavel Shamis <pshamis@ornl.gov> \and Swaroop Pophale <swaroop@cs.uh.edu>}
 
 \maketitle
 
@@ -152,6 +152,13 @@ progressively improve the parallelization afforded by OpenSHMEM.
   tool is able to report on under-synchronized programs which can lead
   to race conditions, hangs or undefined behavior, and
   over-synchronized ones which introduce slowdowns.
+  
+\subsection {Application Experience with OpenSHMEM}
+On this section we will talk about different applications and bnechmarks that
+have been ported to OpenSHMEM and how these applications benefit
+from the communication library. The applications will include WL-LSMS3, 
+SSCA3,  NPB, QMCPack, etc. We will explain why these applications benefit
+from OpenSHMEM.
 
 \section{Hands-On Work}
 
@@ -259,8 +266,19 @@ All tutorial material will be available for download.
     mathematics, parallel computing and others.  The group also ran
     external paid courses in parallel programming for industry users.
 
-\subsection{Oscar}
+\subsection{Oscar Hernandez}
 
-\subsection{Other}
+Oscar Hernandez is a research staff in the Computer Science and Mathematics Division at Oak Ridge National Laboratory. He works on code analysis and transformation tools to support the NCCS and OLCF project activities. His research focus has been on compilers and performance tools integration, and optimization techniques for parallel languages and libraries, especially OpenSHMEM, OpenMP, OpenACC and other accelerator directives. His work also involves the research and development of tools for OpenSHMEM programs and is the main developer for the OpenSHMEM Analyzer. Prior to his work, he was a developer of the OpenUH compiler and the Dragon Analysis Tool to analyze OpenMP programs. Oscar Hernandez graduated from the University of Houston with a Ph.D. and Msc. degree in the area of compilers and high performance computing. He also holds a B.S. Degree in Physics, Mathematics and Computer Science from Harding University.
+
+\subsection{Pavel Shamis}
+
+Pavel Shamis is a research staff at Oak Ridge National Laboratory. His main area of research is high-performance communication middleware and collective communication. Prior to  joining Oak Ridge National Laboratory, Mr. Shamis spent ten years at Mellanox Technologies in different technical roles, including Senior Software Developer and HPC Team Leader. 
+
+\subsection{Swaroop Pophale}
+Swaroop is a doctoral candidate in the Computer Science Department at the University of Houston. She has 
+been involved in high performance computing research and the OpenSHMEM project for the last four years. Her main
+area of research is collective optimizations and compiler-based analysis for collectives. Swaroop was one of the main
+drivers for the OpenSHMEM 1.1 specification and has vast experience in porting codes to OpenSHMEM.
+
 
 \end{document}
